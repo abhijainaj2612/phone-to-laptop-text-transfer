@@ -1,0 +1,5 @@
+websockets>=13,<16
+pyautogui>=0.9.54
+pynput>=1.7.7
+pyperclip>=1.9
+python-dotenv>=1.0,<2

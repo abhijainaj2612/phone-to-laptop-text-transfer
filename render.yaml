@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: phone-pc-type-relay
+    runtime: python
+    buildCommand: pip install -r requirements-relay.txt
+    startCommand: uvicorn relay_server.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PAIRING_CODE_EXPIRY
+        value: "300"
+      - key: MAX_MESSAGE_SIZE
+        value: "50000"
+      - key: RATE_LIMIT
+        value: "30"
+      - key: ALLOWED_ORIGINS
+        sync: false
