@@ -21,7 +21,7 @@ You need a small Python host that provides HTTPS and supports WebSockets (for ex
 
 ```text
 SECRET_KEY=<generate a unique long random secret>
-PAIRING_CODE_EXPIRY=300
+PAIRING_CODE_EXPIRY=86400
 MAX_MESSAGE_SIZE=50000
 RATE_LIMIT=30
 ```
@@ -101,7 +101,7 @@ Only one typing operation can run at once. New messages received during typing r
 ## Security and privacy notes
 
 - Production requires HTTPS/WSS; do not use plain HTTP for real use.
-- Pairing codes expire (five minutes by default); tokens are HMAC-signed and a browser can send only to its paired PC identity.
+- Pairing codes expire after 24 hours by default; tokens are HMAC-signed and a browser can send only to its paired PC identity.
 - Messages are constrained by size and simple per-IP/per-device rate limits.
 - Full message text is neither logged nor retained by the relay. The PC keeps only the latest text in RAM.
 - No analytics, accounts, database, direct LAN addressing, or inbound PC ports are used.

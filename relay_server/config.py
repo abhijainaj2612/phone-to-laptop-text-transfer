@@ -8,7 +8,7 @@ load_dotenv()
 @dataclass(frozen=True)
 class Settings:
     secret_key: str = os.getenv("SECRET_KEY", "")
-    pairing_code_expiry: int = int(os.getenv("PAIRING_CODE_EXPIRY", "300"))
+    pairing_code_expiry: int = int(os.getenv("PAIRING_CODE_EXPIRY", "86400"))
     max_message_size: int = int(os.getenv("MAX_MESSAGE_SIZE", "50000"))
     rate_limit: int = int(os.getenv("RATE_LIMIT", "30"))
     allowed_origins: str = os.getenv("ALLOWED_ORIGINS", "*")
